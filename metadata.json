@@ -1,0 +1,6 @@
+{
+  "name": "Gorilla's Lanches - Cardápio Digital & Automação WhatsApp",
+  "description": "Arquitetura e cardápio digital PWA com integração direta para WhatsApp, cálculo de frete por km, PIX dinâmico e impressão térmica de comandas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

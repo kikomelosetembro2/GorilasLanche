@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gorilla's Lanches | Cardápio Digital & Delivery Oficial</title>
+  <meta name="description" content="Peça os melhores hambúrgueres artesanais de Rio Branco no Gorilla's Lanches. Entrega rápida, cálculo de frete por km e pedidos direto no WhatsApp." />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#7A3E1D',
+              burnt: '#54250C',
+              cream: '#F5EBE1',
+              white: '#FFFFFF',
+              dark: '#1F1F1F',
+              red: '#54250C',
+              yellow: '#7A3E1D',
+              gray: '#F5EBE1'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons via CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* Estilos Customizados & Utilitários - Paleta Oficial: #FFFFFF, #F5EBE1, #7A3E1D, #54250C, #1F1F1F */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FFFFFF;
+      color: #1F1F1F;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Animação Suave para Gaveta e Modais */
+    .modal-enter {
+      animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.97) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    /* Animação de Shake/Bounce no Ícone do Carrinho */
+    @keyframes cartShake {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      15% { transform: scale(1.15) rotate(-12deg); }
+      30% { transform: scale(1.18) rotate(12deg); }
+      45% { transform: scale(1.15) rotate(-8deg); }
+      60% { transform: scale(1.1) rotate(6deg); }
+      75% { transform: scale(1.05) rotate(-2deg); }
+    }
+    .animate-cart-shake {
+      animation: cartShake 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+    @media print {
+      body * { visibility: hidden; }
+      #printableReceipt, #printableReceipt * { visibility: visible; }
+      #printableReceipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80mm;
+        margin: 0;
+        padding: 5mm;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-stone-900 antialiased selection:bg-[#7A3E1D] selection:text-white flex flex-col min-h-screen">
+
+  <!-- ========================================== -->
+  <!-- BARRA DE AVISO SUPERIOR (TOP ANNOUNCEMENT) -->
+  <!-- ========================================== -->
+  <aside aria-label="Aviso Superior" class="bg-[#7A3E1D] text-white text-xs font-semibold py-2 px-4 shadow-inner">
+    <div class="max-w-7xl mx-auto flex items-center justify-between overflow-x-auto text-nowrap gap-4">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-star text-[#F59E0B]"></i>
+        <span>Mais Sabor, Mais Qualidade, Mais Você!</span>
+        <span class="hidden md:inline-flex items-center gap-1.5 ml-2 px-2 py-0.5 rounded-full bg-white/15 text-white text-[11px]">
+          <i class="fa-solid fa-fire text-[#F59E0B]"></i> Pedidos 100% integrados ao WhatsApp
+        </span>
+      </div>
+      <div class="flex items-center gap-3 text-xs font-medium text-white/95">
+        <span class="flex items-center gap-1.5">
+          <i class="fa-regular fa-clock text-[#F59E0B]"></i> Terça a Domingo: 18h às 22h
+        </span>
+        <span class="hidden sm:inline text-white/50">•</span>
+        <a href="https://wa.me/5568992277408" target="_blank" rel="noopener noreferrer" class="hover:underline flex items-center gap-1 font-bold">
+          <i class="fa-brands fa-whatsapp text-white"></i> (68) 99227-7408
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================== -->
+  <!-- HEADER / NAVEGAÇÃO PRINCIPAL              -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+      
+      <!-- Marca & Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#7A3E1D] p-0.5 shadow-sm group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center border border-orange-100">
+            <span class="text-2xl select-none">🦍</span>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg sm:text-xl font-extrabold tracking-tight text-stone-900 group-hover:text-[#7A3E1D] transition-colors">
+              Gorilla's Lanches
+            </span>
+            <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-orange-50 text-[#7A3E1D] border border-orange-200/60">
+              OFICIAL
+            </span>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-stone-500">
+            <span id="statusIndicator" class="inline-flex items-center gap-1 font-semibold text-emerald-600">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Aberto Agora
+            </span>
+            <span class="hidden sm:inline text-stone-300">•</span>
+            <span class="hidden sm:inline text-stone-600">Rio Branco - AC</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Menu Links Desktop -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-stone-600">
+        <a href="#cardapio" class="hover:text-[#7A3E1D] transition-colors">Cardápio</a>
+        <a href="#sobre" class="hover:text-[#7A3E1D] transition-colors">Sobre Nós</a>
+        <a href="#contato" class="hover:text-[#7A3E1D] transition-colors">Contato & Local</a>
+        <button onclick="openDeliverySimulator()" class="hover:text-[#7A3E1D] transition-colors flex items-center gap-1 text-stone-600">
+          <i class="fa-solid fa-motorcycle text-[#7A3E1D]"></i> Simular Frete
+        </button>
+      </nav>
+
+      <!-- Ações do Cabeçalho -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Botão WhatsApp Direto -->
+        <a href="https://wa.me/5568992277408?text=Ol%C3%A1%20Gorilla's%20Lanches!%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer"
+           class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200/80 font-bold text-xs shadow-xs transition-all active:scale-95">
+          <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+          <span>WhatsApp</span>
+        </a>
+
+        <!-- Botão Carrinho -->
+        <button id="headerCartBtn" onclick="toggleCartDrawer(true)" aria-label="Abrir Carrinho"
+                class="relative flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-[#7A3E1D] hover:bg-[#54250C] text-white font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95">
+          <div class="relative">
+            <i class="fa-solid fa-bag-shopping text-base"></i>
+            <span id="cartCountBadge" class="hidden absolute -top-2.5 -right-2.5 w-4 h-4 bg-[#EF4444] text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-xs">
+              0
+            </span>
+          </div>
+          <div class="text-left hidden xs:block">
+            <span class="block text-[9px] uppercase font-semibold text-white/90 leading-none">Carrinho</span>
+            <span id="headerCartTotal" class="text-xs sm:text-sm font-bold leading-none text-white font-mono">R$ 0,00</span>
+          </div>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 1. HERO SECTION                            -->
+  <!-- ========================================== -->
+  <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-orange-50/50 via-white to-white py-12 sm:py-16 md:py-20 border-b border-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Texto & CTAs -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 text-[#7A3E1D] text-xs font-bold border border-orange-200">
+            <i class="fa-solid fa-fire text-[#EF4444]"></i>
+            <span>O Melhor Hambúrguer Artesanal de Rio Branco</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-tight">
+            Sabor de Verdade.<br />
+            <span class="text-[#7A3E1D]">Carne Suculenta</span> & Entrega Rápida!
+          </h1>
+
+          <p class="text-base sm:text-lg text-stone-600 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+            Pão brioche selado na manteiga, hambúrguer 100% bovino grelhado, queijo derretido e maionese especial da casa. Monte seu pedido online e receba quentinho na sua casa!
+          </p>
+
+          <!-- Destaques Rápidos -->
+          <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 pt-2">
+            <div class="p-3 rounded-2xl bg-white border border-stone-200/80 shadow-xs text-center">
+              <i class="fa-solid fa-clock text-[#7A3E1D] text-lg mb-1 block"></i>
+              <span class="block text-xs font-bold text-stone-900">30 a 50 min</span>
+              <span class="text-[10px] text-stone-500">Média de Entrega</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-white border border-stone-200/80 shadow-xs text-center">
+              <i class="fa-solid fa-shield-halved text-[#F59E0B] text-lg mb-1 block"></i>
+              <span class="block text-xs font-bold text-stone-900">100% Seguro</span>
+              <span class="text-[10px] text-stone-500">PIX & Cartão</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-white border border-stone-200/80 shadow-xs text-center">
+              <i class="fa-solid fa-star text-[#F59E0B] text-lg mb-1 block"></i>
+              <span class="block text-xs font-bold text-stone-900">4.9 / 5.0</span>
+              <span class="text-[10px] text-stone-500">Avaliações Clientes</span>
+            </div>
+          </div>
+
+          <!-- Botões de Ação Principal -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
+            <a href="#cardapio" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-[#7A3E1D] hover:bg-[#54250C] text-white font-bold text-sm shadow-md transition-all active:scale-95">
+              <i class="fa-solid fa-utensils"></i>
+              <span>Ver Cardápio Completo</span>
+            </a>
+            <a href="https://wa.me/5568992277408?text=Ol%C3%A1%20Gorilla's%20Lanches!%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer"
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-all active:scale-95">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Pedir no WhatsApp</span>
+            </a>
+            <button onclick="openDeliverySimulator()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold text-xs border border-stone-200 transition-colors">
+              <i class="fa-solid fa-motorcycle text-[#7A3E1D]"></i>
+              <span>Simular Frete</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Imagem / Banner Visual -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <!-- Efeito de Brilho / Círculo de Fundo -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-[#7A3E1D]/20 to-[#F59E0B]/20 rounded-3xl blur-2xl -z-10"></div>
+            
+            <div class="relative rounded-3xl overflow-hidden border border-stone-200/90 shadow-2xl bg-white p-2">
+              <img 
+                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" 
+                alt="Hambúrguer Artesanal Especial Gorilla's Lanches" 
+                class="w-full h-72 sm:h-80 md:h-96 object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
+              />
+              
+              <!-- Tag Flutuante de Oferta -->
+              <div class="absolute top-5 right-5 bg-[#EF4444] text-white px-3 py-1.5 rounded-xl font-black text-xs shadow-lg flex items-center gap-1.5 animate-bounce">
+                <i class="fa-solid fa-fire"></i> MAIS PEDIDO
+              </div>
+
+              <!-- Cartão de Destaque Inferior -->
+              <div class="absolute bottom-5 inset-x-5 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border border-stone-200/80 shadow-lg flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-orange-100 text-[#7A3E1D] flex items-center justify-center font-black">
+                    🦍
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-xs text-stone-900">Combo Família Gorilla</h3>
+                    <p class="text-[11px] text-stone-500">2 Burgers + Batata GG + Refri 1L</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="block text-xs font-black text-[#7A3E1D] font-mono">R$ 55,00</span>
+                  <button onclick="addComboQuick()" class="text-[10px] font-bold text-stone-700 bg-stone-100 hover:bg-[#7A3E1D] hover:text-white px-2 py-1 rounded-lg transition-colors">
+                    + Adicionar
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. CARDÁPIO / CATÁLOGO INTERATIVO         -->
+  <!-- ========================================== -->
+  <section id="cardapio" class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Cabeçalho da Seção -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-50 text-[#7A3E1D] text-xs font-bold mb-2">
+            <i class="fa-solid fa-burger"></i> Nosso Cardápio
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight">
+            Escolha o Seu Lanche Favorito
+          </h2>
+          <p class="text-xs sm:text-sm text-stone-500 mt-1">
+            Hambúrgueres frescos preparados na hora com ingredientes selecionados.
+          </p>
+        </div>
+
+        <!-- Campo de Busca Rápida -->
+        <div class="relative w-full md:w-72">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Buscar por nome ou ingrediente..." 
+            class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-[#7A3E1D] focus:ring-1 focus:ring-[#7A3E1D]"
+            oninput="handleSearch()"
+          />
+        </div>
+      </div>
+
+      <!-- Filtros / Abas de Categorias -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 text-nowrap">
+        <button onclick="filterCategory('todos')" data-cat="todos" class="cat-pill active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#7A3E1D] text-white shadow-xs transition-all">
+          <i class="fa-solid fa-layer-group mr-1.5"></i> Todos os Itens
+        </button>
+        <button onclick="filterCategory('combos')" data-cat="combos" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition-all">
+          <i class="fa-solid fa-fire text-[#EF4444] mr-1.5"></i> Combos Especiais
+        </button>
+        <button onclick="filterCategory('artesanais')" data-cat="artesanais" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition-all">
+          <i class="fa-solid fa-burger text-[#7A3E1D] mr-1.5"></i> Artesanais
+        </button>
+        <button onclick="filterCategory('tradicionais')" data-cat="tradicionais" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition-all">
+          <i class="fa-solid fa-bread-slice text-[#F59E0B] mr-1.5"></i> Tradicionais
+        </button>
+        <button onclick="filterCategory('porcoes')" data-cat="porcoes" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition-all">
+          <i class="fa-solid fa-bowl-food text-amber-600 mr-1.5"></i> Porções & Batatas
+        </button>
+        <button onclick="filterCategory('bebidas')" data-cat="bebidas" class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition-all">
+          <i class="fa-solid fa-bottle-water text-cyan-600 mr-1.5"></i> Bebidas
+        </button>
+      </div>
+
+      <!-- Grid de Produtos Interativos -->
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Itens inseridos dinamicamente via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. SEÇÃO "SOBRE NÓS"                       -->
+  <!-- ========================================== -->
+  <section id="sobre" class="py-14 bg-stone-50 border-y border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Galeria / Foto da Seção Sobre -->
+        <div class="lg:col-span-5 space-y-3">
+          <div class="rounded-3xl overflow-hidden border border-stone-200 shadow-md">
+            <img 
+              src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80" 
+              alt="Cozinha Artesanal Gorilla's Lanches" 
+              class="w-full h-72 object-cover"
+            />
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3.5 rounded-2xl bg-white border border-stone-200/80 shadow-xs text-center">
+              <span class="block text-xl font-black text-[#7A3E1D]">100%</span>
+              <span class="text-xs text-stone-600 font-medium">Carne Selecionada</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white border border-stone-200/80 shadow-xs text-center">
+              <span class="block text-xl font-black text-[#F59E0B]">5 Estrelas</span>
+              <span class="text-xs text-stone-600 font-medium">Satisfação Garantida</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conteúdo Textual -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-100 text-[#7A3E1D] text-xs font-bold">
+            <i class="fa-solid fa-heart text-[#EF4444]"></i> Nossa História
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+            Paixão por Hambúrguer e Compromisso com Rio Branco
+          </h2>
+          <p class="text-sm text-stone-600 leading-relaxed">
+            O <strong>Gorilla's Lanches</strong> nasceu com a missão de transformar o lanche de todo dia em uma experiência inesquecível. Aqui, cada hambúrguer é preparado com blend bovino especial, pão brioche artesanal macio e crocante, e molhos autorais que fazem toda a diferença.
+          </p>
+          <p class="text-sm text-stone-600 leading-relaxed">
+            Localizados na <strong>Rua Santo André, 199</strong>, atendemos famílias, amigos e trabalhadores de toda a cidade com entrega rápida e comanda térmica para que seu pedido chegue exatamente como você pediu.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-orange-50 text-[#7A3E1D] flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <span class="text-xs font-bold text-stone-800">Pão Sempre Fresco</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-orange-50 text-[#7A3E1D] flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <span class="text-xs font-bold text-stone-800">Blend Grelhado</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-orange-50 text-[#7A3E1D] flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <span class="text-xs font-bold text-stone-800">Maionese da Casa</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. SEÇÃO DE CONTATO E LOCALIZAÇÃO          -->
+  <!-- ========================================== -->
+  <section id="contato" class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-50 text-[#7A3E1D] text-xs font-bold mb-2">
+          <i class="fa-solid fa-location-dot"></i> Onde Estamos & Horários
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+          Faça uma Visita ou Peça Pelo Delivery
+        </h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-1">
+          Estamos prontos para atender você com o carinho e qualidade que você merece.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Cartão 1: Endereço & Maps -->
+        <div class="p-6 rounded-3xl bg-stone-50 border border-stone-200/90 shadow-xs flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-orange-100 text-[#7A3E1D] flex items-center justify-center text-lg">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <h3 class="text-base font-bold text-stone-900">Nosso Endereço</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Rua Santo André, 199<br />
+              Rio Branco - AC<br />
+              <span class="text-stone-400">Atendemos delivery em todos os bairros da cidade.</span>
+            </p>
+          </div>
+          <div class="pt-4">
+            <a href="https://maps.google.com/?q=Rua+Santo+Andr%C3%A9+199+Rio+Branco+AC" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-xs font-bold text-[#7A3E1D] hover:underline">
+              <span>Abrir no Google Maps</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cartão 2: Horários & Status -->
+        <div class="p-6 rounded-3xl bg-stone-50 border border-stone-200/90 shadow-xs flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-amber-100 text-[#F59E0B] flex items-center justify-center text-lg">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <h3 class="text-base font-bold text-stone-900">Horário de Funcionamento</h3>
+            <div class="space-y-1.5 text-xs text-stone-600">
+              <div class="flex justify-between py-1 border-b border-stone-200/70">
+                <span class="font-medium">Terça a Domingo:</span>
+                <span class="font-bold text-stone-900">18:00 às 22:00</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-stone-200/70">
+                <span class="font-medium">Segundas-feiras:</span>
+                <span class="font-bold text-[#EF4444]">Fechado (Descanso)</span>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4">
+            <span id="openStatusBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Aberto Agora para Pedidos
+            </span>
+          </div>
+        </div>
+
+        <!-- Cartão 3: Contatos & Redes Sociais -->
+        <div class="p-6 rounded-3xl bg-stone-50 border border-stone-200/90 shadow-xs flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h3 class="text-base font-bold text-stone-900">Atendimento Direto</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Tire dúvidas, faça pedidos ou consulte eventos corporativos diretamente pelo nosso WhatsApp oficial.
+            </p>
+            <p class="text-sm font-bold text-stone-900 font-mono">
+              (68) 99227-7408
+            </p>
+          </div>
+          <div class="pt-4 flex items-center gap-2">
+            <a href="https://wa.me/5568992277408?text=Ol%C3%A1%20Gorilla's%20Lanches!" target="_blank" rel="noopener noreferrer"
+               class="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-xs transition-colors">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Chamar no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- FOOTER                                     -->
+  <!-- ========================================== -->
+  <footer class="mt-auto border-t border-stone-200/80 bg-white py-8 text-xs text-stone-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-lg">🦍</span>
+        <span class="font-bold text-stone-900">Gorilla's Lanches</span>
+        <span>• © 2026 Todos os direitos reservados.</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-medium">
+        <a href="#hero" class="hover:text-[#7A3E1D] transition-colors">Início</a>
+        <a href="#cardapio" class="hover:text-[#7A3E1D] transition-colors">Cardápio</a>
+        <a href="#sobre" class="hover:text-[#7A3E1D] transition-colors">Sobre</a>
+        <a href="#contato" class="hover:text-[#7A3E1D] transition-colors">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- MODAL: PERSONALIZAÇÃO DO PRODUTO (ADDONS) -->
+  <!-- ========================================== -->
+  <div id="productModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-stone-900/50 backdrop-blur-xs">
+    <div class="modal-enter w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-stone-200 overflow-hidden flex flex-col max-h-[90vh]">
+      
+      <!-- Cabeçalho do Modal -->
+      <div class="relative h-48 sm:h-56 bg-stone-100 overflow-hidden shrink-0">
+        <img id="modalProductImg" src="" alt="" class="w-full h-full object-cover" />
+        <button onclick="closeProductModal()" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <span id="modalProductCategory" class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-black/70 text-white text-[11px] font-bold uppercase tracking-wider backdrop-blur-xs"></span>
+      </div>
+
+      <!-- Conteúdo com Scroll -->
+      <div class="p-4 sm:p-6 overflow-y-auto space-y-4 flex-1">
+        <div>
+          <div class="flex items-start justify-between gap-2">
+            <h3 id="modalProductName" class="text-lg sm:text-xl font-extrabold text-stone-900"></h3>
+            <span id="modalProductPrice" class="text-base sm:text-lg font-black text-[#7A3E1D] font-mono"></span>
+          </div>
+          <p id="modalProductDesc" class="text-xs text-stone-500 mt-1 leading-relaxed"></p>
+        </div>
+
+        <!-- Adicionais Opcionais -->
+        <div class="border-t border-stone-100 pt-3">
+          <h4 class="text-xs font-bold text-stone-900 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span>Deseja Turbinar seu Lanche?</span>
+            <span class="text-[10px] text-stone-400 font-normal">Opcional</span>
+          </h4>
+          <div class="space-y-2" id="modalAddonsList">
+            <!-- Adicionais via JS -->
+          </div>
+        </div>
+
+        <!-- Ingredientes para remover -->
+        <div class="border-t border-stone-100 pt-3">
+          <h4 class="text-xs font-bold text-stone-900 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span>Algum Ingrediente para Retirar?</span>
+            <span class="text-[10px] text-stone-400 font-normal">Opcional</span>
+          </h4>
+          <div class="flex flex-wrap gap-2" id="modalRemovalsList">
+            <!-- Ingredientes removíveis -->
+          </div>
+        </div>
+
+        <!-- Observações Gerais -->
+        <div class="border-t border-stone-100 pt-3">
+          <label for="modalNotes" class="block text-xs font-bold text-stone-900 uppercase tracking-wider mb-1">
+            Observações do Pedido:
+          </label>
+          <input 
+            type="text" 
+            id="modalNotes" 
+            placeholder="Ex: ponto da carne bem passado, pouco sal, etc." 
+            class="w-full px-3 py-2 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-900 focus:outline-none focus:border-[#7A3E1D]"
+          />
+        </div>
+      </div>
+
+      <!-- Rodapé do Modal (Ajuste de Qtd e Adicionar) -->
+      <div class="p-4 border-t border-stone-100 bg-stone-50/70 flex items-center justify-between gap-3 shrink-0">
+        <!-- Quantidade -->
+        <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-xl border border-stone-200 shadow-xs">
+          <button onclick="changeModalQty(-1)" class="w-7 h-7 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold flex items-center justify-center text-xs">
+            -
+          </button>
+          <span id="modalQtyDisplay" class="font-bold text-sm text-stone-900 px-2 font-mono">1</span>
+          <button onclick="changeModalQty(1)" class="w-7 h-7 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold flex items-center justify-center text-xs">
+            +
+          </button>
+        </div>
+
+        <!-- Botão Adicionar com Total Calculado -->
+        <button onclick="confirmAddToCart()" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#7A3E1D] hover:bg-[#54250C] text-white font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95">
+          <span>Adicionar ao Carrinho</span>
+          <span>•</span>
+          <span id="modalTotalBtnPrice" class="font-mono"></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 3. CARRINHO DE COMPRAS (DRAWER LATERAL)   -->
+  <!-- ========================================== -->
+  <div id="cartDrawerBackdrop" class="hidden fixed inset-0 z-50 bg-stone-900/50 backdrop-blur-xs transition-opacity duration-300" onclick="toggleCartDrawer(false)"></div>
+  <aside id="cartDrawer" aria-label="Carrinho de Compras" class="fixed top-0 right-0 bottom-0 z-50 w-full sm:w-[420px] bg-white shadow-2xl border-l border-stone-200 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    
+    <!-- Cabeçalho do Carrinho -->
+    <div class="p-4 sm:p-5 border-b border-stone-100 flex items-center justify-between bg-stone-50/60">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-orange-100 text-[#7A3E1D] flex items-center justify-center text-sm font-bold">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-extrabold text-stone-900">Seu Pedido</h3>
+          <span id="cartDrawerItemsCount" class="text-xs text-stone-500">0 itens selecionados</span>
+        </div>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="w-8 h-8 rounded-xl bg-white hover:bg-stone-100 text-stone-600 border border-stone-200 flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+    </div>
+
+    <!-- Lista de Itens do Carrinho -->
+    <div id="cartItemsList" class="flex-1 overflow-y-auto p-4 space-y-3">
+      <!-- Inserido dinamicamente via JS -->
+    </div>
+
+    <!-- Opções de Entrega & Pagamento -->
+    <div class="p-4 border-t border-stone-100 bg-stone-50/60 space-y-3 shrink-0">
+      
+      <!-- Tipo de Entrega -->
+      <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
+        <button type="button" onclick="setDeliveryType('delivery')" id="btnTypeDelivery" class="py-2 px-3 rounded-xl border border-[#7A3E1D] bg-orange-50 text-[#7A3E1D] flex items-center justify-center gap-1.5 transition-all">
+          <i class="fa-solid fa-motorcycle"></i> Delivery
+        </button>
+        <button type="button" onclick="setDeliveryType('retirada')" id="btnTypeRetirada" class="py-2 px-3 rounded-xl border border-stone-200 bg-white text-stone-700 hover:bg-stone-50 flex items-center justify-center gap-1.5 transition-all">
+          <i class="fa-solid fa-store"></i> Retirada no Balcão
+        </button>
+      </div>
+
+      <!-- Detalhes do Endereço (se delivery) -->
+      <div id="deliveryFields" class="space-y-2">
+        <div class="grid grid-cols-12 gap-2">
+          <input type="text" id="custName" placeholder="Seu Nome Completo" class="col-span-12 px-3 py-2 rounded-xl bg-white border border-stone-200 text-xs text-stone-900 focus:outline-none focus:border-[#7A3E1D]" />
+          <input type="text" id="custStreet" placeholder="Rua / Avenida" class="col-span-8 px-3 py-2 rounded-xl bg-white border border-stone-200 text-xs text-stone-900 focus:outline-none focus:border-[#7A3E1D]" />
+          <input type="text" id="custNumber" placeholder="Nº" class="col-span-4 px-3 py-2 rounded-xl bg-white border border-stone-200 text-xs text-stone-900 focus:outline-none focus:border-[#7A3E1D]" />
+        </div>
+        <div class="grid grid-cols-12 gap-2">
+          <select id="custNeighborhood" onchange="calculateDeliveryFromSelect()" class="col-span-7 px-3 py-2 rounded-xl bg-white border border-stone-200 text-xs text-stone-900 focus:outline-none focus:border-[#7A3E1D]">
+            <option value="5.00">Centro / Bosque (R$ 5,00)</option>
+            <option value="7.00" selected>Cerâmica / Manoel Julião (R$ 7,00)</option>
+            <option value="9.00">Vila Acre / Estação Experimental (R$ 9,00)</option>
+            <option value="12.00">Universitário / Distrito (R$ 12,00)</option>
+          </select>
+          <input type="text" id="custComplement" placeholder="Apto / Ref." class="col-span-5 px-3 py-2 rounded-xl bg-white border border-stone-200 text-xs text-stone-900 focus:outline-none focus:border-[#7A3E1D]" />
+        </div>
+      </div>
+
+      <!-- Forma de Pagamento -->
+      <div class="space-y-1">
+        <label class="block text-[11px] font-bold text-stone-700 uppercase">Forma de Pagamento:</label>
+        <select id="payMethod" class="w-full px-3 py-2 rounded-xl bg-white border border-stone-200 text-xs text-stone-900 focus:outline-none focus:border-[#7A3E1D]">
+          <option value="PIX">PIX (Chave ou QR Code na Entrega)</option>
+          <option value="Cartão de Crédito">Cartão de Crédito (Maquininha)</option>
+          <option value="Cartão de Débito">Cartão de Débito (Maquininha)</option>
+          <option value="Dinheiro">Dinheiro (Informar Troco no WhatsApp)</option>
+        </select>
+      </div>
+
+      <!-- Totais -->
+      <div class="space-y-1 pt-1 text-xs text-stone-600 border-t border-stone-200/80">
+        <div class="flex justify-between">
+          <span>Subtotal dos Itens:</span>
+          <span id="cartSubtotalText" class="font-mono font-semibold">R$ 0,00</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Taxa de Entrega:</span>
+          <span id="cartDeliveryFeeText" class="font-mono font-semibold">R$ 7,00</span>
+        </div>
+        <div class="flex justify-between text-sm font-black text-stone-900 pt-1 border-t border-stone-200">
+          <span>Total Geral:</span>
+          <span id="cartTotalText" class="text-base text-[#7A3E1D] font-mono">R$ 0,00</span>
+        </div>
+      </div>
+
+      <!-- Botão Enviar Pedido via WhatsApp -->
+      <button onclick="submitOrderToWhatsApp()" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        <span>Finalizar Pedido no WhatsApp</span>
+      </button>
+
+      <!-- Botão Imprimir Comanda Térmica -->
+      <button onclick="printThermalTicket()" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold text-xs border border-stone-200 transition-colors">
+        <i class="fa-solid fa-receipt text-stone-500"></i>
+        <span>Imprimir Comanda do Pedido</span>
+      </button>
+
+    </div>
+
+  </aside>
+
+  <!-- ========================================== -->
+  <!-- MODAL: SIMULADOR DE FRETE (KM / RAIO)      -->
+  <!-- ========================================== -->
+  <div id="deliveryModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-xs">
+    <div class="modal-enter w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl border border-stone-200 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-xl bg-orange-100 text-[#7A3E1D] flex items-center justify-center">
+            <i class="fa-solid fa-motorcycle"></i>
+          </div>
+          <h3 class="font-bold text-base text-stone-900">Simulador de Frete por Raio</h3>
+        </div>
+        <button onclick="closeDeliverySimulator()" class="w-7 h-7 rounded-lg bg-stone-100 text-stone-500 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-stone-600 leading-relaxed">
+        Nossa cozinha está localizada na <strong>Rua Santo André, 199</strong>. A taxa de entrega é calculada com base na distância estimada em quilômetros:
+      </p>
+
+      <div class="space-y-2">
+        <label class="block text-xs font-bold text-stone-700">Distância estimada (km):</label>
+        <div class="flex items-center gap-3">
+          <input 
+            type="range" 
+            id="distanceSlider" 
+            min="0.5" 
+            max="12" 
+            step="0.5" 
+            value="3.0" 
+            class="flex-1 accent-[#7A3E1D]"
+            oninput="updateSimulatorFee()"
+          />
+          <span id="distanceDisplay" class="font-mono font-bold text-xs bg-stone-100 px-2.5 py-1 rounded-lg">3.0 km</span>
+        </div>
+      </div>
+
+      <div class="p-3.5 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-between">
+        <div>
+          <span class="block text-[11px] text-stone-500 uppercase font-semibold">Valor da Entrega:</span>
+          <span id="simulatorFeeDisplay" class="text-lg font-black text-[#7A3E1D] font-mono">R$ 7,00</span>
+        </div>
+        <span id="simulatorTimeDisplay" class="text-xs text-stone-600 font-medium bg-white px-2.5 py-1 rounded-lg border border-orange-200">
+          25 a 40 min
+        </span>
+      </div>
+
+      <button onclick="applySimulatedFee()" class="w-full py-2.5 rounded-xl bg-[#7A3E1D] text-white font-bold text-xs">
+        Aplicar ao Carrinho
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- ÁREA OCULTA PARA IMPRESSÃO TÉRMICA 80MM    -->
+  <!-- ========================================== -->
+  <div id="printableReceipt" class="hidden">
+    <div style="font-family: monospace; font-size: 12px; line-height: 1.4; color: black; max-width: 80mm;">
+      <div style="text-align: center; border-bottom: 1px dashed black; padding-bottom: 5px; margin-bottom: 8px;">
+        <h2 style="font-size: 16px; margin: 0; font-weight: bold;">GORILLA'S LANCHES</h2>
+        <p style="margin: 2px 0;">Rua Santo André, 199 - Rio Branco AC</p>
+        <p style="margin: 2px 0;">WhatsApp: (68) 99227-7408</p>
+        <p style="margin: 2px 0; font-size: 10px;">*** CONTROLE DE COZINHA & DELIVERY ***</p>
+      </div>
+      <div id="receiptContent"></div>
+      <div style="text-align: center; border-top: 1px dashed black; padding-top: 6px; margin-top: 8px;">
+        <p style="margin: 0; font-weight: bold;">Mais Sabor, Mais Qualidade, Mais Você!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT: DADOS, CARRINHO E WHATSAPP    -->
+  <!-- ========================================== -->
+  <script>
+    // ----------------------------------------------------
+    // 1. CONFIGURAÇÕES & DADOS DO NEGÓCIO
+    // ----------------------------------------------------
+    const BUSINESS = {
+      name: "Gorilla's Lanches",
+      phoneRaw: "5568992277408",
+      phoneFormatted: "(68) 99227-7408",
+      address: "Rua Santo André, 199 - Rio Branco, AC",
+      openHour: 18,
+      closeHour: 22,
+      closedDay: 1 // Segunda-feira
+    };
+
+    // Cardápio Completo com Fotos em Alta Resolução
+    const PRODUCTS = [
+      {
+        id: 'combo-1',
+        category: 'combos',
+        name: 'Combo Gorilla Prime',
+        desc: 'Hambúrguer artesanal 160g, cheddar duplo, bacon crocante, batata frita rústica crocante e Coca-Cola gelada.',
+        price: 38.00,
+        img: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=600&q=80',
+        badge: 'Top Vendas'
+      },
+      {
+        id: 'combo-2',
+        category: 'combos',
+        name: 'Combo Família Gorilla (Duplo)',
+        desc: '2 Burgers artesanais completos + porção grande de batatas fritas crocantes + Refrigerante 1L.',
+        price: 55.00,
+        img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80',
+        badge: 'Economia'
+      },
+      {
+        id: 'art-1',
+        category: 'artesanais',
+        name: 'Gorilla Bacon Cheddar 180g',
+        desc: 'Pão brioche tostado, blend 180g grelhado, generosas fatias de bacon e cascata de queijo cheddar derretido.',
+        price: 29.50,
+        img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80',
+        badge: 'Favorito'
+      },
+      {
+        id: 'art-2',
+        category: 'artesanais',
+        name: 'Gorilla Smash Duplo Especial',
+        desc: 'Dois discos de carne smash prensados na chapa, queijo prato derretido, cebola caramelizada e picles.',
+        price: 27.00,
+        img: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80',
+        badge: null
+      },
+      {
+        id: 'art-3',
+        category: 'artesanais',
+        name: 'Gorilla Crispy Chicken',
+        desc: 'Sobrecoxa empanada super crocante, salada americana fresca, queijo prato e maionese artesanal da casa.',
+        price: 26.00,
+        img: 'https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=600&q=80',
+        badge: null
+      },
+      {
+        id: 'trad-1',
+        category: 'tradicionais',
+        name: 'X-Bagunça Gorilla Tradicional',
+        desc: 'Pão macio, carne, queijo, ovo frito na manteiga, bacon crocante, presunto, milho, alface e tomate fresco.',
+        price: 24.00,
+        img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=600&q=80',
+        badge: 'Clássico'
+      },
+      {
+        id: 'trad-2',
+        category: 'tradicionais',
+        name: 'X-Tudo Especial',
+        desc: 'O lanche mais completo da casa com carne dupla, queijo prato duplo, presunto, ovo, bacon e maionese.',
+        price: 25.50,
+        img: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=600&q=80',
+        badge: null
+      },
+      {
+        id: 'porc-1',
+        category: 'porcoes',
+        name: 'Batata Rústica com Cheddar e Bacon',
+        desc: 'Porção generosa de batatas sequinhas cobertas com cheddar cremoso e farofa de bacon crocante.',
+        price: 22.00,
+        img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80',
+        badge: 'Porção GG'
+      },
+      {
+        id: 'beb-1',
+        category: 'bebidas',
+        name: 'Refrigerante Lata 350ml',
+        desc: 'Coca-Cola, Guaraná Antarctica ou Fanta Laranja super gelados.',
+        price: 6.00,
+        img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&q=80',
+        badge: null
+      },
+      {
+        id: 'beb-2',
+        category: 'bebidas',
+        name: 'Suco Natural de Laranja 500ml',
+        desc: 'Feito na hora com laranjas frescas selecionadas, 100% natural.',
+        price: 9.00,
+        img: 'https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=600&q=80',
+        badge: 'Natural'
+      }
+    ];
+
+    const AVAILABLE_ADDONS = [
+      { id: 'bacon', name: 'Bacon Crocante Fatiado (+R$ 4,50)', price: 4.50 },
+      { id: 'queijo', name: 'Queijo Duplo Derretido (+R$ 3,50)', price: 3.50 },
+      { id: 'ovo', name: 'Ovo Frito na Manteiga (+R$ 2,50)', price: 2.50 },
+      { id: 'hamburguer', name: 'Hambúrguer Extra 160g (+R$ 8,00)', price: 8.00 },
+      { id: 'molho', name: 'Pote de Maionese da Casa (+R$ 3,00)', price: 3.00 }
+    ];
+
+    const COMMON_REMOVALS = ['Sem Cebola', 'Sem Picles', 'Sem Salada/Tomate', 'Sem Maionese'];
+
+    // ----------------------------------------------------
+    // 2. ESTADO DA APLICAÇÃO (CARRINHO & MODAL)
+    // ----------------------------------------------------
+    let cart = [];
+    let currentModalProduct = null;
+    let modalQuantity = 1;
+    let deliveryType = 'delivery';
+    let currentDeliveryFee = 7.00;
+
+    // ----------------------------------------------------
+    // 3. INICIALIZAÇÃO & RENDERIZAÇÃO
+    // ----------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      checkStoreStatus();
+      renderProducts(PRODUCTS);
+      updateCartUI();
+    });
+
+    // Verifica se está aberto
+    function checkStoreStatus() {
+      const now = new Date();
+      const day = now.getDay(); // 0: Dom, 1: Seg, 2: Ter...
+      const hour = now.getHours();
+      const isMonday = day === BUSINESS.closedDay;
+      const isOpenHour = hour >= BUSINESS.openHour && hour < BUSINESS.closeHour;
+      const isOpen = !isMonday && isOpenHour;
+
+      const indicator = document.getElementById('statusIndicator');
+      const badge = document.getElementById('openStatusBadge');
+
+      if (isOpen) {
+        indicator.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Aberto Agora (18h-22h)';
+        indicator.className = 'inline-flex items-center gap-1 font-semibold text-emerald-600';
+        if (badge) {
+          badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800';
+          badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Aberto Agora para Pedidos';
+        }
+      } else {
+        indicator.innerHTML = '<span class="w-2 h-2 rounded-full bg-[#EF4444]"></span> Fechado Agora (Abre às 18h)';
+        indicator.className = 'inline-flex items-center gap-1 font-semibold text-[#EF4444]';
+        if (badge) {
+          badge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800';
+          badge.innerHTML = 'Fechado no momento (Abre Terça a Domingo às 18:00)';
+        }
+      }
+    }
+
+    // Renderiza Cards no Grid
+    function renderProducts(items) {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-stone-500">
+            <i class="fa-solid fa-burger text-3xl mb-2 text-stone-300"></i>
+            <p class="text-sm font-semibold">Nenhum produto encontrado com este termo.</p>
+          </div>
+        `;
+        return;
+      }
+
+      items.forEach(product => {
+        const card = document.createElement('div');
+        card.className = "group bg-white rounded-3xl p-3 sm:p-4 border border-stone-200/90 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between";
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="relative h-44 sm:h-48 rounded-2xl overflow-hidden bg-stone-100">
+              <img 
+                src="${product.img}" 
+                alt="${product.name}" 
+                loading="lazy" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              ${product.badge ? `
+                <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-black bg-[#EF4444] text-white shadow-xs">
+                  ${product.badge}
+                </span>
+              ` : ''}
+            </div>
+            <div>
+              <h3 class="font-bold text-sm sm:text-base text-stone-900 group-hover:text-[#7A3E1D] transition-colors leading-snug">
+                ${product.name}
+              </h3>
+              <p class="text-xs text-stone-500 mt-1 line-clamp-2 leading-relaxed">
+                ${product.desc}
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-4 mt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <span class="text-[10px] uppercase font-semibold text-stone-400 block leading-none">Preço</span>
+              <span class="text-base sm:text-lg font-black text-[#7A3E1D] font-mono leading-none">
+                R$ ${product.price.toFixed(2).replace('.', ',')}
+              </span>
+            </div>
+
+            <button 
+              onclick="openProductModal('${product.id}')" 
+              class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-orange-50 hover:bg-[#7A3E1D] text-[#7A3E1D] hover:text-white font-bold text-xs transition-all active:scale-95 border border-orange-200/80 hover:border-transparent"
+            >
+              <i class="fa-solid fa-plus text-[11px]"></i>
+              <span>Adicionar</span>
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Filtros de Categoria
+    function filterCategory(category) {
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.getAttribute('data-cat') === category) {
+          btn.className = 'cat-pill active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#7A3E1D] text-white shadow-xs transition-all';
+        } else {
+          btn.className = 'cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition-all';
+        }
+      });
+
+      if (category === 'todos') {
+        renderProducts(PRODUCTS);
+      } else {
+        const filtered = PRODUCTS.filter(p => p.category === category);
+        renderProducts(filtered);
+      }
+    }
+
+    // Busca Textual
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const filtered = PRODUCTS.filter(p => 
+        p.name.toLowerCase().includes(query) || 
+        p.desc.toLowerCase().includes(query)
+      );
+      renderProducts(filtered);
+    }
+
+    // Atalho Adicionar Combo Rápido do Hero
+    function addComboQuick() {
+      openProductModal('combo-2');
+    }
+
+    // ----------------------------------------------------
+    // 4. MODAL DO PRODUTO & ADICIONAIS
+    // ----------------------------------------------------
+    function openProductModal(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      currentModalProduct = product;
+      modalQuantity = 1;
+
+      document.getElementById('modalProductName').textContent = product.name;
+      document.getElementById('modalProductDesc').textContent = product.desc;
+      document.getElementById('modalProductPrice').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
+      document.getElementById('modalProductCategory').textContent = product.category;
+      document.getElementById('modalProductImg').src = product.img;
+      document.getElementById('modalQtyDisplay').textContent = '1';
+      document.getElementById('modalNotes').value = '';
+
+      // Renderiza Adicionais com Checkbox
+      const addonsContainer = document.getElementById('modalAddonsList');
+      addonsContainer.innerHTML = '';
+      AVAILABLE_ADDONS.forEach(addon => {
+        const div = document.createElement('label');
+        div.className = 'flex items-center justify-between p-2 rounded-xl bg-stone-50 hover:bg-orange-50/50 border border-stone-200/80 cursor-pointer text-xs transition-colors';
+        div.innerHTML = `
+          <div class="flex items-center gap-2">
+            <input type="checkbox" name="modalAddon" value="${addon.id}" onchange="updateModalCalculatedPrice()" class="rounded text-[#7A3E1D] focus:ring-[#7A3E1D]" />
+            <span class="font-medium text-stone-800">${addon.name}</span>
+          </div>
+        `;
+        addonsContainer.appendChild(div);
+      });
+
+      // Renderiza Ingredientes Removíveis
+      const removalsContainer = document.getElementById('modalRemovalsList');
+      removalsContainer.innerHTML = '';
+      COMMON_REMOVALS.forEach(rem => {
+        const label = document.createElement('label');
+        label.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-stone-100 hover:bg-red-50 text-stone-700 text-xs cursor-pointer border border-stone-200 transition-colors';
+        label.innerHTML = `
+          <input type="checkbox" name="modalRemoval" value="${rem}" class="rounded text-red-500 focus:ring-red-400" />
+          <span>${rem}</span>
+        `;
+        removalsContainer.appendChild(label);
+      });
+
+      updateModalCalculatedPrice();
+      document.getElementById('productModal').classList.remove('hidden');
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').classList.add('hidden');
+      currentModalProduct = null;
+    }
+
+    function changeModalQty(delta) {
+      modalQuantity = Math.max(1, modalQuantity + delta);
+      document.getElementById('modalQtyDisplay').textContent = modalQuantity;
+      updateModalCalculatedPrice();
+    }
+
+    function updateModalCalculatedPrice() {
+      if (!currentModalProduct) return;
+      let unitPrice = currentModalProduct.price;
+
+      // Soma adicionais marcados
+      const checkedAddons = document.querySelectorAll('input[name="modalAddon"]:checked');
+      checkedAddons.forEach(cb => {
+        const addon = AVAILABLE_ADDONS.find(a => a.id === cb.value);
+        if (addon) unitPrice += addon.price;
+      });
+
+      const total = unitPrice * modalQuantity;
+      document.getElementById('modalTotalBtnPrice').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    }
+
+    function confirmAddToCart() {
+      if (!currentModalProduct) return;
+
+      const checkedAddons = [];
+      document.querySelectorAll('input[name="modalAddon"]:checked').forEach(cb => {
+        const addon = AVAILABLE_ADDONS.find(a => a.id === cb.value);
+        if (addon) checkedAddons.push(addon);
+      });
+
+      const removedIngredients = [];
+      document.querySelectorAll('input[name="modalRemoval"]:checked').forEach(cb => {
+        removedIngredients.push(cb.value);
+      });
+
+      const notes = document.getElementById('modalNotes').value.trim();
+
+      let itemUnitPrice = currentModalProduct.price;
+      checkedAddons.forEach(a => itemUnitPrice += a.price);
+
+      const cartItem = {
+        cartItemId: 'item_' + Date.now() + Math.random().toString(36).substr(2, 4),
+        product: currentModalProduct,
+        quantity: modalQuantity,
+        unitPrice: itemUnitPrice,
+        totalPrice: itemUnitPrice * modalQuantity,
+        selectedAddons: checkedAddons,
+        removedIngredients: removedIngredients,
+        notes: notes
+      };
+
+      cart.push(cartItem);
+      closeProductModal();
+      updateCartUI();
+
+      // Feedback de Animação Shake/Bounce no Ícone do Carrinho
+      const cartBtn = document.getElementById('headerCartBtn');
+      if (cartBtn) {
+        cartBtn.classList.remove('animate-cart-shake');
+        void cartBtn.offsetWidth;
+        cartBtn.classList.add('animate-cart-shake');
+        setTimeout(() => cartBtn.classList.remove('animate-cart-shake'), 700);
+      }
+
+      toggleCartDrawer(true);
+    }
+
+    // ----------------------------------------------------
+    // 5. GERENCIAMENTO DO CARRINHO & TOTAIS
+    // ----------------------------------------------------
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cartDrawer');
+      const backdrop = document.getElementById('cartDrawerBackdrop');
+
+      if (open) {
+        backdrop.classList.remove('hidden');
+        setTimeout(() => drawer.classList.remove('translate-x-full'), 10);
+      } else {
+        drawer.classList.add('translate-x-full');
+        setTimeout(() => backdrop.classList.add('hidden'), 300);
+      }
+    }
+
+    function updateCartItemQty(cartItemId, delta) {
+      const item = cart.find(i => i.cartItemId === cartItemId);
+      if (!item) return;
+
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.cartItemId !== cartItemId);
+      } else {
+        item.totalPrice = item.unitPrice * item.quantity;
+      }
+      updateCartUI();
+    }
+
+    function removeCartItem(cartItemId) {
+      cart = cart.filter(i => i.cartItemId !== cartItemId);
+      updateCartUI();
+    }
+
+    function setDeliveryType(type) {
+      deliveryType = type;
+      const btnDel = document.getElementById('btnTypeDelivery');
+      const btnRet = document.getElementById('btnTypeRetirada');
+      const fields = document.getElementById('deliveryFields');
+
+      if (type === 'delivery') {
+        btnDel.className = 'py-2 px-3 rounded-xl border border-[#7A3E1D] bg-orange-50 text-[#7A3E1D] flex items-center justify-center gap-1.5 transition-all';
+        btnRet.className = 'py-2 px-3 rounded-xl border border-stone-200 bg-white text-stone-700 hover:bg-stone-50 flex items-center justify-center gap-1.5 transition-all';
+        fields.classList.remove('hidden');
+        calculateDeliveryFromSelect();
+      } else {
+        btnRet.className = 'py-2 px-3 rounded-xl border border-[#7A3E1D] bg-orange-50 text-[#7A3E1D] flex items-center justify-center gap-1.5 transition-all';
+        btnDel.className = 'py-2 px-3 rounded-xl border border-stone-200 bg-white text-stone-700 hover:bg-stone-50 flex items-center justify-center gap-1.5 transition-all';
+        fields.classList.add('hidden');
+        currentDeliveryFee = 0.00;
+        updateCartTotals();
+      }
+    }
+
+    function calculateDeliveryFromSelect() {
+      if (deliveryType === 'retirada') {
+        currentDeliveryFee = 0.00;
+      } else {
+        const select = document.getElementById('custNeighborhood');
+        currentDeliveryFee = parseFloat(select.value) || 7.00;
+      }
+      updateCartTotals();
+    }
+
+    function updateCartTotals() {
+      let subtotal = 0;
+      let totalCount = 0;
+
+      cart.forEach(item => {
+        subtotal += item.totalPrice;
+        totalCount += item.quantity;
+      });
+
+      const grandTotal = subtotal + currentDeliveryFee;
+
+      // Atualiza Cabeçalho
+      document.getElementById('headerCartTotal').textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      const badge = document.getElementById('cartCountBadge');
+      if (totalCount > 0) {
+        badge.textContent = totalCount;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+
+      // Atualiza Drawer
+      document.getElementById('cartDrawerItemsCount').textContent = `${totalCount} item(ns) no pedido`;
+      document.getElementById('cartSubtotalText').textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      document.getElementById('cartDeliveryFeeText').textContent = deliveryType === 'retirada' ? 'Grátis (Retirada)' : `R$ ${currentDeliveryFee.toFixed(2).replace('.', ',')}`;
+      document.getElementById('cartTotalText').textContent = `R$ ${grandTotal.toFixed(2).replace('.', ',')}`;
+    }
+
+    function updateCartUI() {
+      const container = document.getElementById('cartItemsList');
+      container.innerHTML = '';
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center py-12 text-center text-stone-400">
+            <i class="fa-solid fa-bag-shopping text-4xl mb-3 text-stone-300"></i>
+            <p class="font-bold text-sm text-stone-600">Seu carrinho está vazio</p>
+            <p class="text-xs text-stone-400 mt-1 max-w-[200px]">Escolha itens saborosos no cardápio para começar.</p>
+          </div>
+        `;
+        updateCartTotals();
+        return;
+      }
+
+      cart.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'p-3 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-xs flex flex-col gap-2';
+
+        let addonsHtml = '';
+        if (item.selectedAddons && item.selectedAddons.length > 0) {
+          addonsHtml = `<div class="text-[10px] text-stone-500 font-medium"><strong>+ Adicionais:</strong> ${item.selectedAddons.map(a => a.name).join(', ')}</div>`;
+        }
+
+        let removalsHtml = '';
+        if (item.removedIngredients && item.removedIngredients.length > 0) {
+          removalsHtml = `<div class="text-[10px] text-red-600 font-medium"><strong>- Remover:</strong> ${item.removedIngredients.join(', ')}</div>`;
+        }
+
+        let notesHtml = '';
+        if (item.notes) {
+          notesHtml = `<div class="text-[10px] text-amber-700 italic"><strong>Obs:</strong> "${item.notes}"</div>`;
+        }
+
+        div.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h4 class="font-bold text-xs sm:text-sm text-stone-900">${item.product.name}</h4>
+              <span class="text-[11px] font-mono text-[#7A3E1D] font-bold">R$ ${item.unitPrice.toFixed(2).replace('.', ',')} un.</span>
+            </div>
+            <button onclick="removeCartItem('${item.cartItemId}')" class="text-stone-400 hover:text-red-500 p-1 text-xs">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+
+          ${addonsHtml}
+          ${removalsHtml}
+          ${notesHtml}
+
+          <div class="flex items-center justify-between pt-1 border-t border-stone-200/60">
+            <div class="flex items-center gap-1.5 bg-white px-2 py-0.5 rounded-lg border border-stone-200">
+              <button onclick="updateCartItemQty('${item.cartItemId}', -1)" class="w-5 h-5 text-stone-600 font-bold text-xs">-</button>
+              <span class="text-xs font-mono font-bold px-1.5">${item.quantity}</span>
+              <button onclick="updateCartItemQty('${item.cartItemId}', 1)" class="w-5 h-5 text-stone-600 font-bold text-xs">+</button>
+            </div>
+            <span class="font-mono font-extrabold text-xs text-stone-900">
+              R$ ${item.totalPrice.toFixed(2).replace('.', ',')}
+            </span>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      updateCartTotals();
+    }
+
+    // ----------------------------------------------------
+    // 6. FINALIZAR PEDIDO VIA WHATSAPP (ESTRUTURADO)
+    // ----------------------------------------------------
+    function submitOrderToWhatsApp() {
+      if (cart.length === 0) {
+        alert('Seu carrinho está vazio! Selecione ao menos um produto no cardápio.');
+        return;
+      }
+
+      const name = document.getElementById('custName').value.trim() || 'Cliente';
+      const street = document.getElementById('custStreet').value.trim();
+      const number = document.getElementById('custNumber').value.trim();
+      const neighborhoodElem = document.getElementById('custNeighborhood');
+      const neighborhoodName = neighborhoodElem.options[neighborhoodElem.selectedIndex].text;
+      const complement = document.getElementById('custComplement').value.trim();
+      const paymentMethod = document.getElementById('payMethod').value;
+
+      if (deliveryType === 'delivery' && (!street || !number)) {
+        alert('Por favor, informe a Rua e o Número para a entrega.');
+        return;
+      }
+
+      let subtotal = 0;
+      cart.forEach(i => subtotal += i.totalPrice);
+      const grandTotal = subtotal + currentDeliveryFee;
+
+      // Montagem da Mensagem do Pedido Formatada
+      let msg = `*NOVO PEDIDO - GORILLA'S LANCHES* 🦍🍔\n`;
+      msg += `------------------------------------\n`;
+      msg += `*Cliente:* ${name}\n`;
+      msg += `*Tipo:* ${deliveryType === 'delivery' ? '🛵 Entrega Delivery' : '🏪 Retirada no Balcão'}\n`;
+
+      if (deliveryType === 'delivery') {
+        msg += `*Endereço:* ${street}, Nº ${number}\n`;
+        msg += `*Bairro/Região:* ${neighborhoodName}\n`;
+        if (complement) msg += `*Complemento/Ref:* ${complement}\n`;
+      }
+
+      msg += `*Pagamento:* ${paymentMethod}\n`;
+      msg += `------------------------------------\n`;
+      msg += `*ITENS DO PEDIDO:*\n`;
+
+      cart.forEach((item, index) => {
+        msg += `\n*${item.quantity}x ${item.product.name}* (R$ ${item.totalPrice.toFixed(2).replace('.', ',')})\n`;
+        if (item.selectedAddons && item.selectedAddons.length > 0) {
+          msg += `  + Adicionais: ${item.selectedAddons.map(a => a.name).join(', ')}\n`;
+        }
+        if (item.removedIngredients && item.removedIngredients.length > 0) {
+          msg += `  - Retirar: ${item.removedIngredients.join(', ')}\n`;
+        }
+        if (item.notes) {
+          msg += `  Obs: "${item.notes}"\n`;
+        }
+      });
+
+      msg += `\n------------------------------------\n`;
+      msg += `*Subtotal:* R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
+      msg += `*Taxa de Entrega:* ${deliveryType === 'retirada' ? 'GRÁTIS' : `R$ ${currentDeliveryFee.toFixed(2).replace('.', ',')}`}\n`;
+      msg += `*TOTAL A PAGAR: R$ ${grandTotal.toFixed(2).replace('.', ',')}*\n`;
+      msg += `------------------------------------\n`;
+      msg += `_Pedido gerado via Cardápio Digital Interativo._`;
+
+      const whatsappUrl = `https://wa.me/${BUSINESS.phoneRaw}?text=${encodeURIComponent(msg)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // ----------------------------------------------------
+    // 7. IMPRESSÃO DA COMANDA TÉRMICA (80MM)
+    // ----------------------------------------------------
+    function printThermalTicket() {
+      if (cart.length === 0) {
+        alert('Adicione itens ao pedido antes de imprimir a comanda.');
+        return;
+      }
+
+      const name = document.getElementById('custName').value.trim() || 'Cliente';
+      const street = document.getElementById('custStreet').value.trim() || 'Balcão';
+      const number = document.getElementById('custNumber').value.trim() || 'S/N';
+      const paymentMethod = document.getElementById('payMethod').value;
+
+      let subtotal = 0;
+      cart.forEach(i => subtotal += i.totalPrice);
+      const grandTotal = subtotal + currentDeliveryFee;
+
+      let html = `
+        <div style="font-size: 11px; margin-bottom: 6px;">
+          <strong>PEDIDO #${Math.floor(1000 + Math.random() * 9000)}</strong> - ${new Date().toLocaleTimeString('pt-BR')}<br />
+          <strong>Cliente:</strong> ${name}<br />
+          <strong>Tipo:</strong> ${deliveryType.toUpperCase()}<br />
+          <strong>Endereço:</strong> ${street}, ${number}<br />
+          <strong>Pagamento:</strong> ${paymentMethod}
+        </div>
+        <div style="border-top: 1px dashed black; border-bottom: 1px dashed black; padding: 4px 0; margin-bottom: 6px;">
+      `;
+
+      cart.forEach(item => {
+        html += `
+          <div style="margin-bottom: 4px;">
+            <strong>${item.quantity}x ${item.product.name}</strong> - R$ ${item.totalPrice.toFixed(2)}<br />
+            ${item.selectedAddons.length ? `<span style="font-size: 10px;">+ ${item.selectedAddons.map(a => a.name).join(', ')}</span><br />` : ''}
+            ${item.removedIngredients.length ? `<span style="font-size: 10px; color: red;">- ${item.removedIngredients.join(', ')}</span><br />` : ''}
+            ${item.notes ? `<span style="font-size: 10px; font-style: italic;">Obs: ${item.notes}</span><br />` : ''}
+          </div>
+        `;
+      });
+
+      html += `
+        </div>
+        <div style="text-align: right; font-size: 12px;">
+          Subtotal: R$ ${subtotal.toFixed(2)}<br />
+          Entrega: R$ ${currentDeliveryFee.toFixed(2)}<br />
+          <strong>TOTAL: R$ ${grandTotal.toFixed(2)}</strong>
+        </div>
+      `;
+
+      document.getElementById('receiptContent').innerHTML = html;
+      window.print();
+    }
+
+    // ----------------------------------------------------
+    // 8. SIMULADOR DE FRETE (KM / RAIO)
+    // ----------------------------------------------------
+    function openDeliverySimulator() {
+      document.getElementById('deliveryModal').classList.remove('hidden');
+      updateSimulatorFee();
+    }
+
+    function closeDeliverySimulator() {
+      document.getElementById('deliveryModal').classList.add('hidden');
+    }
+
+    function updateSimulatorFee() {
+      const distance = parseFloat(document.getElementById('distanceSlider').value);
+      document.getElementById('distanceDisplay').textContent = `${distance.toFixed(1)} km`;
+
+      let fee = 5.00;
+      let time = "20 a 35 min";
+
+      if (distance > 2.0 && distance <= 4.0) {
+        fee = 7.00;
+        time = "25 a 40 min";
+      } else if (distance > 4.0 && distance <= 7.0) {
+        fee = 9.00;
+        time = "35 a 50 min";
+      } else if (distance > 7.0) {
+        fee = 12.00;
+        time = "45 a 65 min";
+      }
+
+      document.getElementById('simulatorFeeDisplay').textContent = `R$ ${fee.toFixed(2).replace('.', ',')}`;
+      document.getElementById('simulatorTimeDisplay').textContent = time;
+    }
+
+    function applySimulatedFee() {
+      const feeText = document.getElementById('simulatorFeeDisplay').textContent;
+      const feeValue = parseFloat(feeText.replace('R$', '').replace(',', '.').trim());
+      currentDeliveryFee = feeValue;
+      setDeliveryType('delivery');
+      updateCartTotals();
+      closeDeliverySimulator();
+      toggleCartDrawer(true);
+    }
+  </script>
+</body>
+</html>

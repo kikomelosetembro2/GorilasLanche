@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg-main: #FAF6F0;
+  --color-bg-card: #FFFFFF;
+  --color-bg-muted: #F5EBE1;
+  --color-text-title: #241711;
+  --color-text-body: #4A3A31;
+  --color-text-muted: #7D6B60;
+  --color-brand-primary: #7A3E1D;
+  --color-brand-hover: #54250C;
+  --color-brand-light: #F5EBE1;
+  --color-border: #E6DACF;
+  --color-banner-from: #7A3E1D;
+  --color-banner-to: #54250C;
+  --color-badge-bg: #F5EBE1;
+  --color-badge-text: #54250C;
+}
+
+[data-theme="warm-artisanal"],
+[data-theme="marrom-gourmet"] {
+  --color-bg-main: #FAF6F0;
+  --color-bg-card: #FFFFFF;
+  --color-bg-muted: #F5EBE1;
+  --color-text-title: #241711;
+  --color-text-body: #4A3A31;
+  --color-text-muted: #7D6B60;
+  --color-brand-primary: #7A3E1D;
+  --color-brand-hover: #54250C;
+  --color-brand-light: #F5EBE1;
+  --color-border: #E6DACF;
+  --color-banner-from: #7A3E1D;
+  --color-banner-to: #54250C;
+  --color-badge-bg: #F5EBE1;
+  --color-badge-text: #54250C;
+}
+
+[data-theme="midnight-smoke"] {
+  --color-bg-main: #14100D;
+  --color-bg-card: #1E1713;
+  --color-bg-muted: #2A201B;
+  --color-text-title: #F7EFE9;
+  --color-text-body: #D8CCC4;
+  --color-text-muted: #A39389;
+  --color-brand-primary: #9E582E;
+  --color-brand-hover: #7A3E1D;
+  --color-brand-light: #2A1D16;
+  --color-border: #362923;
+  --color-banner-from: #201814;
+  --color-banner-to: #14100D;
+  --color-badge-bg: #2A1D16;
+  --color-badge-text: #CCA084;
+}
+
+[data-theme="neo-bistro"] {
+  --color-bg-main: #FAF7F2;
+  --color-bg-card: #FFFFFF;
+  --color-bg-muted: #F0E8DD;
+  --color-text-title: #211611;
+  --color-text-body: #3B2D26;
+  --color-text-muted: #6E5C53;
+  --color-brand-primary: #6B3718;
+  --color-brand-hover: #4A240E;
+  --color-brand-light: #F5ECE2;
+  --color-border: #DFD2C4;
+  --color-banner-from: #331C10;
+  --color-banner-to: #1F1008;
+  --color-badge-bg: #F5ECE2;
+  --color-badge-text: #4A240E;
+}
+
+[data-theme="gorillas-sunset"] {
+  --color-bg-main: #FAF6F0;
+  --color-bg-card: #FFFFFF;
+  --color-bg-muted: #F5EBE1;
+  --color-text-title: #241711;
+  --color-text-body: #4A3A31;
+  --color-text-muted: #7D6B60;
+  --color-brand-primary: #7A3E1D;
+  --color-brand-hover: #54250C;
+  --color-brand-light: #F5EBE1;
+  --color-border: #E6DACF;
+  --color-banner-from: #7A3E1D;
+  --color-banner-to: #54250C;
+  --color-badge-bg: #F5EBE1;
+  --color-badge-text: #54250C;
+}
+
+@keyframes cart-shake {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  15% {
+    transform: scale(1.15) rotate(-12deg);
+  }
+  30% {
+    transform: scale(1.18) rotate(12deg);
+  }
+  45% {
+    transform: scale(1.15) rotate(-8deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(6deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(-2deg);
+  }
+}
+
+@keyframes cart-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) scale(1.06);
+  }
+  50% {
+    transform: translateY(2px) scale(0.98);
+  }
+  75% {
+    transform: translateY(-4px) scale(1.02);
+  }
+}
+
+@keyframes badge-pop {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-cart-shake {
+  animation: cart-shake 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-cart-bounce {
+  animation: cart-bounce 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-badge-pop {
+  animation: badge-pop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-muted);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-primary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-hover);
+}
