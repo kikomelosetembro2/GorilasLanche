@@ -119,6 +119,7 @@ export function buildWebhookPayload(order: Order, restaurant: RestaurantConfig) 
     restaurant: {
       id: 'gorillas-lanches-01',
       name: restaurant.name,
+      phone: restaurant.phone,
       whatsapp: restaurant.whatsappFormatted,
     },
     order: {

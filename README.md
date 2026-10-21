@@ -32,7 +32,7 @@ Os arquivos otimizados para produção serão gerados na pasta `dist/`.
 ## 📱 Dados e Contato Oficial
 * **Restaurante:** Gorilla's Lanches
 * **Slogan:** Mais Sabor, Mais Qualidade, Mais Você!
-* **Telefone / Atendimento WhatsApp:** (68) 99227-7408
+* **Telefone / Atendimento WhatsApp:** +55 68 8102-1682
 * **Endereço:** Rua Santo André, 199 - Rio Branco, AC
 * **Horário de Atendimento:** Terça a Domingo, das 18:00 às 22:00 (Fechado às Segundas)
 

@@ -124,10 +124,10 @@ export function calculateDeliveryFeeByRadius(lat1: number, lon1: number, lat2: n
         <div className="space-y-6 animate-in fade-in duration-300">
           <div className="bg-[#FFFFFF] rounded-2xl p-6 sm:p-8 border border-stone-200/90 shadow-xs space-y-4">
             <h3 className="text-lg sm:text-xl font-bold text-stone-900 flex items-center gap-2">
-              <Zap className="w-5 h-5 text-[#7A3E1D]" /> Integração com WhatsApp (68) 99227-7408
+              <Zap className="w-5 h-5 text-[#7A3E1D]" /> Integração com WhatsApp +55 68 8102-1682
             </h3>
             <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-              O cliente finaliza o pedido e o botão abre o aplicativo oficial do WhatsApp no celular dele com a mensagem perfeitamente diagramada. O próprio cliente aperta &quot;Enviar&quot; para o número <strong>(68) 99227-7408</strong>.
+              O cliente finaliza o pedido e o botão abre o aplicativo oficial do WhatsApp no celular dele com a mensagem perfeitamente diagramada. O próprio cliente aperta &quot;Enviar&quot; para o número <strong>+55 68 8102-1682</strong>.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
@@ -264,7 +264,7 @@ export function calculateDeliveryFeeByRadius(lat1: number, lon1: number, lat2: n
                 <div>
                   <h4 className="font-semibold text-sm text-stone-900">Etapa 1: Cardápio PWA Online</h4>
                   <p className="text-xs text-stone-600 mt-0.5">
-                    Cardápio ativo com todos os 31 lanches do Gorilla&apos;s, cálculo de frete por raio (km) e direcionamento oficial para <code>(68) 9927-7408</code>.
+                    Cardápio ativo com todos os 31 lanches do Gorilla&apos;s, cálculo de frete por raio (km) e direcionamento oficial para <code>+55 68 8102-1682</code>.
                   </p>
                 </div>
               </div>

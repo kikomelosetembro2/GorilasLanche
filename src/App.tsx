@@ -16,13 +16,11 @@ import {
   ShoppingBag,
   ArrowRight,
   MessageCircle,
-  Download,
   Globe,
   Sparkles,
   Check,
   Copy,
   Bike,
-  FileCode,
   Palette,
 } from 'lucide-react';
 
@@ -57,7 +55,7 @@ export default function App() {
     createdAt: new Date().toISOString(),
     customer: {
       name: 'Carlos Albuquerque',
-      phone: '(68) 99227-7408',
+      phone: '+55 68 8102-1682',
       deliveryType: 'delivery',
       address: {
         street: 'Rua Floriano Peixoto',
@@ -197,7 +195,6 @@ export default function App() {
         onOpenCart={() => setIsCartOpen(true)}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        onOpenDownload={() => setIsDownloadOpen(true)}
         onOpenShare={() => setIsShareOpen(true)}
         onOpenThemes={() => setIsThemeModalOpen(true)}
         isCartAnimating={isCartAnimating}
@@ -205,24 +202,24 @@ export default function App() {
 
       {/* Main Responsive Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-4 sm:py-6">
-        {/* Banner de Status e Ações Rápidas de Download HTML */}
+        {/* Barra de Atendimento e Ações Rápidas */}
         {activeTab === 'catalog' && (
           <div className="mb-5 p-4 sm:p-5 rounded-2xl bg-[var(--color-bg-muted)] border border-[var(--color-border)] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-colors duration-200">
             <div className="flex items-start sm:items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-[var(--color-bg-card)] text-[var(--color-brand-primary)] flex items-center justify-center font-bold shrink-0 border border-[var(--color-border)] shadow-xs">
-                <FileCode className="w-5 h-5 text-[var(--color-brand-primary)]" />
+                <Sparkles className="w-5 h-5 text-[var(--color-brand-primary)]" />
               </div>
               <div className="text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-[var(--color-text-title)]">
-                    Aplicativo Disponível para Execução Local ou Web:
+                  <span className="font-bold text-[var(--color-text-title)] text-sm">
+                    {RESTAURANT_INFO.name} • Cardápio Digital Oficial
                   </span>
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                    100% EXECUTÁVEL
+                    ONLINE
                   </span>
                 </div>
                 <p className="text-[var(--color-text-muted)] text-[11px] mt-0.5 max-w-md">
-                  Baixe o arquivo HTML standalone para abrir com 2 cliques em qualquer navegador ou o pacote ZIP completo.
+                  Faça seu pedido online, calcule o frete por km e receba quentinho via WhatsApp oficial <strong>{RESTAURANT_INFO.phone}</strong>.
                 </p>
               </div>
             </div>
@@ -240,27 +237,18 @@ export default function App() {
 
               <button
                 type="button"
-                onClick={() => setIsDownloadOpen(true)}
-                className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-[var(--color-brand-primary)] hover:bg-[var(--color-brand-hover)] text-white font-bold text-xs shadow-xs transition-all active:scale-95"
-              >
-                <Download className="w-4 h-4 text-white" />
-                <span>Baixar Código HTML</span>
-              </button>
-
-              <button
-                type="button"
                 onClick={() => setIsDeliveryCalcOpen(true)}
-                className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-[var(--color-bg-card)] hover:opacity-80 text-[var(--color-text-title)] font-bold text-xs border border-[var(--color-border)] transition-colors"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-[var(--color-brand-primary)] hover:bg-[var(--color-brand-hover)] text-white font-bold text-xs shadow-xs transition-all active:scale-95"
                 title="Simular frete por km"
               >
-                <Bike className="w-4 h-4 text-[var(--color-brand-primary)]" />
+                <Bike className="w-4 h-4 text-white" />
                 <span>Calcular Frete (km)</span>
               </button>
 
               <button
                 type="button"
                 onClick={handleCopyPublicLink}
-                className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-[var(--color-bg-card)] hover:opacity-80 text-[var(--color-text-title)] font-semibold text-xs border border-[var(--color-border)] transition-colors"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-[var(--color-bg-card)] hover:opacity-80 text-[var(--color-text-title)] font-semibold text-xs border border-[var(--color-border)] transition-colors"
               >
                 {copiedPublicLink ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4 text-[var(--color-text-title)]" />}
                 <span>{copiedPublicLink ? 'Copiado!' : 'Copiar Link'}</span>
@@ -269,7 +257,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => setIsShareOpen(true)}
-                className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-[var(--color-bg-card)] hover:opacity-80 text-[var(--color-text-title)] font-semibold text-xs border border-[var(--color-border)] transition-colors"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-[var(--color-bg-card)] hover:opacity-80 text-[var(--color-text-title)] font-semibold text-xs border border-[var(--color-border)] transition-colors"
               >
                 <Globe className="w-4 h-4 text-[var(--color-brand-primary)]" />
                 <span>QR Code</span>
@@ -434,13 +422,6 @@ export default function App() {
               className="text-[var(--color-brand-primary)] hover:text-[var(--color-brand-hover)] hover:underline font-bold flex items-center gap-1 transition-colors"
             >
               <Bike className="w-3.5 h-3.5" /> Tabela de Frete (km)
-            </button>
-            <span>•</span>
-            <button
-              onClick={() => setIsDownloadOpen(true)}
-              className="text-[var(--color-brand-primary)] hover:text-[var(--color-brand-hover)] hover:underline font-bold flex items-center gap-1 transition-colors"
-            >
-              <Download className="w-3.5 h-3.5" /> Baixar HTML / ZIP
             </button>
             <span>•</span>
             <a

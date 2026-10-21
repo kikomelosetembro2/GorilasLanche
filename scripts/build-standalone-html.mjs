@@ -112,8 +112,8 @@ em qualquer celular:
 
 ====================================================================
 Suporte & Configurações da Hamburgueria:
-- WhatsApp: (11) 98765-4321
-- Horário: Quarta a Domingo das 18h às 23h30
+- WhatsApp: +55 68 8102-1682
+- Horário: Terça a Domingo das 18h às 22h (Fechado às Segundas)
 ====================================================================
 `;
 

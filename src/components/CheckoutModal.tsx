@@ -261,7 +261,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
     onOrderCreated(newOrder);
 
-    // Build URL for WhatsApp ((68) 9927-7408)
+    // Build URL for WhatsApp (+55 68 8102-1682)
     const waUrl = buildWhatsAppLink(newOrder, restaurant);
     setLastWaUrl(waUrl);
     setOrderSent(true);

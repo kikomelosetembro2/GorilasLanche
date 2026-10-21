@@ -7,11 +7,9 @@ import {
   Receipt,
   BookOpen,
   Smartphone,
-  Download,
   Globe,
   Clock,
   Flame,
-  FileCode,
   Palette,
 } from 'lucide-react';
 import { RestaurantConfig } from '../types';
@@ -23,7 +21,6 @@ interface HeaderProps {
   onOpenCart: () => void;
   activeTab: 'catalog' | 'receipt' | 'architecture';
   setActiveTab: (tab: 'catalog' | 'receipt' | 'architecture') => void;
-  onOpenDownload: () => void;
   onOpenShare: () => void;
   onOpenThemes: () => void;
   isCartAnimating?: boolean;
@@ -36,7 +33,6 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenCart,
   activeTab,
   setActiveTab,
-  onOpenDownload,
   onOpenShare,
   onOpenThemes,
   isCartAnimating = false,
@@ -132,17 +128,6 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Palette className="w-4 h-4 text-[var(--color-brand-primary)]" />
               <span className="hidden sm:inline">Paletas</span>
-            </button>
-
-            {/* BOTÃO BAIXAR HTML EXECUTÁVEL / ZIP */}
-            <button
-              onClick={onOpenDownload}
-              className="flex items-center gap-1.5 px-3 py-2 sm:py-2.5 rounded-xl bg-[var(--color-bg-muted)] hover:opacity-90 text-[var(--color-brand-hover)] border border-[var(--color-brand-primary)]/40 font-bold text-xs sm:text-sm shadow-xs transition-all active:scale-95"
-              title="Baixar HTML do Aplicativo para Executar"
-            >
-              <FileCode className="w-4 h-4 text-[var(--color-brand-primary)]" />
-              <span className="hidden xs:inline">Baixar HTML</span>
-              <span className="xs:hidden">HTML</span>
             </button>
 
             {/* BOTÃO WHATSAPP OFICIAL */}
@@ -259,15 +244,6 @@ export const Header: React.FC<HeaderProps> = ({
             >
               Guia
             </span>
-          </button>
-
-          {/* Download HTML Direct Tab Button */}
-          <button
-            onClick={onOpenDownload}
-            className="flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold text-[var(--color-brand-hover)] bg-[var(--color-bg-muted)] hover:opacity-90 border border-[var(--color-brand-primary)]/40 transition-all ml-auto shrink-0"
-          >
-            <Download className="w-4 h-4 text-[var(--color-brand-primary)]" />
-            <span>Baixar HTML / ZIP</span>
           </button>
         </nav>
       </div>
